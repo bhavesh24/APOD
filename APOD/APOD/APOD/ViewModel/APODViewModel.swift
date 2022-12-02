@@ -23,6 +23,12 @@ enum ErrorMessage {
     static let unknownError = "Unknown error"
 }
 
+struct ErrorObject : Codable {
+    let code : Int?
+    let msg : String?
+    let service_version : String?
+}
+
 class APODViewModel {
     weak var delegate: APODViewModelDelegate?
     var currentAPOD: APOD? {
@@ -79,7 +85,6 @@ class APODViewModel {
         delegate?.showLoader()
         NetworkClient.shared().getData(completionBlock: { [weak self] result in
             guard let strongSelf = self else { return }
-            strongSelf.delegate?.hideLoader()
             switch result {
             case .success(let data):
                 DispatchQueue.main.async {
@@ -87,14 +92,19 @@ class APODViewModel {
                     decoder.userInfo[CodingUserInfoKey.managedObjectContext] = CoreDataManager.sharedManager.persistentContainer.viewContext
                     strongSelf.currentAPOD = try? decoder.decode(APOD.self, from: data)
                     CoreDataManager.sharedManager.saveContext()
+                    strongSelf.delegate?.hideLoader()
                 }
             case .failure(let error):
                 let networkError = error as? NetworkError
                 switch networkError {
                 case .invalidURL:
                     strongSelf.delegate?.showErrorAlert(message: networkError?.description ?? Constants.noSpace)
-                case .invalidResponse(_, _):
-                    strongSelf.delegate?.showErrorAlert(message: networkError?.description ?? Constants.noSpace)
+                case .invalidResponse(let data, _):
+                    if let data = data, let error = try? JSONDecoder().decode(ErrorObject.self, from: data), let message = error.msg {
+                        strongSelf.delegate?.showErrorAlert(message: message)
+                    } else {
+                        strongSelf.delegate?.showErrorAlert(message: networkError?.description ?? Constants.noSpace)
+                    }
                 case .none:
                     if  ((try? Reachability().connection == .unavailable) ?? false) {
                         strongSelf.delegate?.showErrorAlert(message: Reachability.Connection.unavailable.description)
@@ -111,9 +121,6 @@ class APODViewModel {
             return
         }
         delegate?.hideShowVideoButton(isHidden: true)
-        if let image = UIImage(named: "load-icon-png-7952") {
-            self.delegate?.updateImage(image: image)
-        }
         delegate?.showImageLoader()
         NetworkClient.shared().loadImageData(url: url) { [weak self] data, error in
             DispatchQueue.main.async {

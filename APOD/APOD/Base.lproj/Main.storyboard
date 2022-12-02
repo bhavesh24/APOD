@@ -150,7 +150,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="load-icon-png-7952" translatesAutoresizingMaskIntoConstraints="NO" id="bg9-II-pZH">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bg9-II-pZH">
                                                 <rect key="frame" x="57" y="67.5" width="300" height="300"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="300" id="Iv8-lz-Jlo"/>
@@ -173,7 +173,7 @@
                                                     <action selector="playVideoURL:" destination="gSM-N6-Qaj" eventType="touchUpInside" id="wiQ-X0-Vvd"/>
                                                 </connections>
                                             </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vt3-k7-JWx">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vt3-k7-JWx">
                                                 <rect key="frame" x="107" y="387.5" width="200" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="ceT-gz-3ft"/>
@@ -299,7 +299,6 @@
     </scenes>
     <resources>
         <image name="icons8-play-button-circled-30" width="90" height="90"/>
-        <image name="load-icon-png-7952" width="2959" height="4438"/>
         <image name="minus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>

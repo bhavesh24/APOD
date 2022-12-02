@@ -29,14 +29,12 @@ class FavoritesViewModel {
     
     func loadImageURL(url: String, imageView: UIImageView) {
         guard let url = URL(string: url)else {
-            imageView.image = UIImage(named: "load-icon-png-7952")
             return
         }
         
         NetworkClient.shared().loadImageData(url: url) { data, error in
             DispatchQueue.main.async {
                 guard let data = data, let image = UIImage(data: data) else {
-                    imageView.image = UIImage(named: "load-icon-png-7952")
                     return
                 }
                 imageView.image = image

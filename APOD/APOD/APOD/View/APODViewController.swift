@@ -23,7 +23,6 @@ class APODViewController: UIViewController {
         super.viewDidLoad()
         viewModel.delegate = self
         apodDateTextField.text = viewModel.getDateStringFromDate(date: Date())
-        viewModel.getAPODForDate(date: viewModel.getServerDateStringFromDate(date: Date()))
         apodDateTextField.addInputViewDatePicker(target: self,
                                                  selector: #selector(updateDate),
                                                  minimumDate: viewModel.getMinimumDate(),
@@ -97,6 +96,7 @@ extension APODViewController: APODViewModelDelegate {
     
     func showErrorAlert(message: String) {
         DispatchQueue.main.async {
+            self.hideLoader()
             let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { _ in
                 self.dismiss(animated: true)

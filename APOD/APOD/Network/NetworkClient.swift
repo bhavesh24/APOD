@@ -57,7 +57,7 @@ class NetworkClient {
             completionBlock(.failure(NetworkError.invalidURL))
             return
         }
-
+        
         let request = URLRequest(url: url)
         
         let task = session?.dataTask(with: request) { data, response, error in
@@ -70,11 +70,7 @@ class NetworkClient {
                 let _ = data,
                 let httpResponse = response as? HTTPURLResponse,
                 200 ..< 300 ~= httpResponse.statusCode else {
-                if let data = data {
-                    completionBlock(.success(data))
-                } else {
-                    completionBlock(.failure(NetworkError.invalidResponse(data, response)))
-                }
+                completionBlock(.failure(NetworkError.invalidResponse(data, response)))
                 return
             }
             // if passed guard
