@@ -30,6 +30,13 @@ class APODViewController: UIViewController {
                                                  maximumDate: Date())
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if let text = apodDateTextField.text,
+           !(apodDateTextField.text?.isEmpty ?? true) {
+            viewModel.getAPODForDate(date: viewModel.getServerDateStringFromDisplayString(date: text))
+        }
+    }
+    
     @objc func updateDate() {
         if let  datePicker = apodDateTextField.inputView as? UIDatePicker {
             viewModel.getAPODForDate(date: viewModel.getServerDateStringFromDate(date: datePicker.date))

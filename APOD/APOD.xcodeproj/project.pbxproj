@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		180845FD2939DCEA00A401E2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180845FC2939DCEA00A401E2 /* Reachability.swift */; };
 		18084607293A0A1400A401E2 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18084606293A0A1300A401E2 /* FavoritesViewController.swift */; };
+		182A1F6A293A2BB900D98CE1 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182A1F69293A2BB900D98CE1 /* FavoritesViewModel.swift */; };
+		182A1F6C293A2E1C00D98CE1 /* FavoritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182A1F6B293A2E1C00D98CE1 /* FavoritesCollectionViewCell.swift */; };
 		18859A2B29390C0600C06C67 /* APOD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18859A2929390C0600C06C67 /* APOD+CoreDataClass.swift */; };
 		18859A2C29390C0600C06C67 /* APOD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18859A2A29390C0600C06C67 /* APOD+CoreDataProperties.swift */; };
 		18B10EA92937A553000AECBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B10EA82937A553000AECBE /* AppDelegate.swift */; };
@@ -47,6 +49,8 @@
 /* Begin PBXFileReference section */
 		180845FC2939DCEA00A401E2 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		18084606293A0A1300A401E2 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		182A1F69293A2BB900D98CE1 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		182A1F6B293A2E1C00D98CE1 /* FavoritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewCell.swift; sourceTree = "<group>"; };
 		18859A2929390C0600C06C67 /* APOD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APOD+CoreDataClass.swift"; sourceTree = "<group>"; };
 		18859A2A29390C0600C06C67 /* APOD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APOD+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		18B10EA52937A553000AECBE /* APOD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APOD.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,9 +126,27 @@
 		18084605293A09BA00A401E2 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
-				18084606293A0A1300A401E2 /* FavoritesViewController.swift */,
+				182A1F6E293A424E00D98CE1 /* ViewModel */,
+				182A1F6D293A423900D98CE1 /* View */,
 			);
 			path = Favorites;
+			sourceTree = "<group>";
+		};
+		182A1F6D293A423900D98CE1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18084606293A0A1300A401E2 /* FavoritesViewController.swift */,
+				182A1F6B293A2E1C00D98CE1 /* FavoritesCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		182A1F6E293A424E00D98CE1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				182A1F69293A2BB900D98CE1 /* FavoritesViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		18B10E9C2937A553000AECBE = {
@@ -349,6 +371,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				182A1F6C293A2E1C00D98CE1 /* FavoritesCollectionViewCell.swift in Sources */,
 				18B10EE32938B8FC000AECBE /* Utilities.swift in Sources */,
 				18B10EE02938B2D0000AECBE /* APODViewModel.swift in Sources */,
 				18B10EAD2937A553000AECBE /* APODViewController.swift in Sources */,
@@ -361,6 +384,7 @@
 				18859A2B29390C0600C06C67 /* APOD+CoreDataClass.swift in Sources */,
 				18084607293A0A1400A401E2 /* FavoritesViewController.swift in Sources */,
 				18B10EE92938C53E000AECBE /* NetworkClient.swift in Sources */,
+				182A1F6A293A2BB900D98CE1 /* FavoritesViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,24 +5,112 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Favorites-->
         <scene sceneID="UWE-Zb-cRy">
             <objects>
-                <viewController id="5o6-HX-inw" sceneMemberID="viewController">
+                <viewController id="5o6-HX-inw" customClass="FavoritesViewController" customModule="APOD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="woG-Ge-HzN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lg2-fb-DrP">
+                                <rect key="frame" x="0.0" y="108" width="414" height="705"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="J3Z-RG-8EX">
+                                    <size key="itemSize" width="200" height="250"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="favoritesCellIdentifier" id="XCf-vN-bKY" customClass="FavoritesCollectionViewCell" customModule="APOD" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="IJz-KW-Tgu">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z5j-xX-i2w">
+                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="200" id="GJm-Fn-ubg"/>
+                                                        <constraint firstAttribute="width" constant="200" id="Qnw-Z2-JWM"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t7I-EL-vEO">
+                                                    <rect key="frame" x="5" y="200" width="195" height="47"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gd5-tP-qus">
+                                                            <rect key="frame" x="0.0" y="0.0" width="148" height="47"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAE-xo-nb2">
+                                                            <rect key="frame" x="148" y="0.0" width="47" height="47"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="47" id="mbh-J5-hV2"/>
+                                                                <constraint firstAttribute="height" constant="47" id="tGh-nc-mn3"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="minus.circle.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="removeFavorites:" destination="XCf-vN-bKY" eventType="touchUpInside" id="ssl-GX-ZXD"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Z5j-xX-i2w" firstAttribute="leading" secondItem="IJz-KW-Tgu" secondAttribute="leading" id="9dc-Sz-xfs"/>
+                                                <constraint firstItem="Z5j-xX-i2w" firstAttribute="top" secondItem="IJz-KW-Tgu" secondAttribute="top" id="Ahk-IE-HZ1"/>
+                                                <constraint firstAttribute="trailing" secondItem="Z5j-xX-i2w" secondAttribute="trailing" id="Awt-Uz-BNq"/>
+                                                <constraint firstItem="t7I-EL-vEO" firstAttribute="leading" secondItem="IJz-KW-Tgu" secondAttribute="leading" constant="5" id="Gza-Y5-R9Q"/>
+                                                <constraint firstItem="t7I-EL-vEO" firstAttribute="top" secondItem="Z5j-xX-i2w" secondAttribute="bottom" id="JQG-4d-cc9"/>
+                                                <constraint firstAttribute="bottom" secondItem="t7I-EL-vEO" secondAttribute="bottom" constant="3" id="fXj-j3-UFn"/>
+                                                <constraint firstAttribute="trailing" secondItem="t7I-EL-vEO" secondAttribute="trailing" id="zqA-7w-UN8"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="favoritesImageView" destination="Z5j-xX-i2w" id="JWd-Xe-kze"/>
+                                            <outlet property="favoritesTitleLabel" destination="gd5-tP-qus" id="0py-Zq-7fR"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There are no Favorites!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cg-xR-f6P">
+                                <rect key="frame" x="0.0" y="108" width="414" height="705"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="v3U-6o-Akj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lg2-fb-DrP" firstAttribute="leading" secondItem="v3U-6o-Akj" secondAttribute="leading" id="Gda-ig-yoU"/>
+                            <constraint firstItem="v3U-6o-Akj" firstAttribute="trailing" secondItem="lg2-fb-DrP" secondAttribute="trailing" id="JEs-Eh-0Iq"/>
+                            <constraint firstItem="lg2-fb-DrP" firstAttribute="top" secondItem="v3U-6o-Akj" secondAttribute="top" constant="20" id="NCh-0K-xvh"/>
+                            <constraint firstItem="7cg-xR-f6P" firstAttribute="top" secondItem="lg2-fb-DrP" secondAttribute="top" id="P7W-By-A5D"/>
+                            <constraint firstItem="7cg-xR-f6P" firstAttribute="bottom" secondItem="lg2-fb-DrP" secondAttribute="bottom" id="R81-Ld-zvk"/>
+                            <constraint firstItem="7cg-xR-f6P" firstAttribute="trailing" secondItem="lg2-fb-DrP" secondAttribute="trailing" id="VIJ-Pg-rww"/>
+                            <constraint firstItem="v3U-6o-Akj" firstAttribute="bottom" secondItem="lg2-fb-DrP" secondAttribute="bottom" id="j75-qu-JrB"/>
+                            <constraint firstItem="7cg-xR-f6P" firstAttribute="leading" secondItem="lg2-fb-DrP" secondAttribute="leading" id="qn0-u0-DSl"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" id="vvr-Dk-NwS"/>
+                    <connections>
+                        <outlet property="collectionView" destination="lg2-fb-DrP" id="mkb-dw-bUn"/>
+                        <outlet property="emptyFavoritesLabel" destination="7cg-xR-f6P" id="bMU-25-pwT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tbo-4X-H0u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-278" y="-591"/>
+            <point key="canvasLocation" x="-1091" y="145"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="wK5-iX-Ju3">
@@ -40,7 +128,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lh7-jG-xRO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2042" y="-513"/>
+            <point key="canvasLocation" x="-2184" y="145"/>
         </scene>
         <!--APOD-->
         <scene sceneID="eMb-4T-pzU">
@@ -171,7 +259,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v4t-0s-8Cd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-378.26086956521743" y="-1245.5357142857142"/>
+            <point key="canvasLocation" x="-1091" y="-648"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="TCa-dV-oem">
@@ -189,7 +277,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xpl-bt-8f1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-665" y="48"/>
+            <point key="canvasLocation" x="-3490" y="-310"/>
         </scene>
         <!--APOD-->
         <scene sceneID="67p-a3-wzM">
@@ -206,12 +294,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cF5-wF-0ZT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1193" y="-1264"/>
+            <point key="canvasLocation" x="-2183" y="-648"/>
         </scene>
     </scenes>
     <resources>
         <image name="icons8-play-button-circled-30" width="90" height="90"/>
         <image name="load-icon-png-7952" width="2959" height="4438"/>
+        <image name="minus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="sun.max.circle" catalog="system" width="128" height="121"/>

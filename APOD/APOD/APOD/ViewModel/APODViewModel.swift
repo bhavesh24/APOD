@@ -57,6 +57,16 @@ class APODViewModel {
         return dateFormatter.date(from: date)
     }
     
+    func getServerDateStringFromDisplayString(date: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        if let date = dateFormatter.date(from: date) {
+            return getServerDateStringFromDate(date: date)
+        } else {
+            return Constants.noSpace
+        }
+    }
+    
     func getAPODForDate(date: String) {
         if let currentAPOD = CoreDataManager.sharedManager.fetchSavedAPODFor(date: date) {
             self.currentAPOD = currentAPOD

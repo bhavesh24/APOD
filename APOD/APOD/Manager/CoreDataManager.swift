@@ -82,4 +82,20 @@ extension CoreDataManager {
         }
         return nil
     }
+    
+    func fetchAPODFavorites() -> [APOD]? {
+        // Create Fetch Request
+        let fetchRequest: NSFetchRequest<APOD> = APOD.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "isFavorite = YES")
+        let context = persistentContainer.viewContext
+        do {
+            // Execute Fetch Request
+            let results = try context.fetch(fetchRequest)
+            return results
+
+        } catch {
+            print("Unable to Execute Fetch Request, \(error)")
+        }
+        return nil
+    }
 }
