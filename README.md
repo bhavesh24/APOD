@@ -21,6 +21,9 @@ iOS Application Implementing APOD API of NASA
 - CoreData is used in the application to store the response
 - Images are stored in the disk
 
+## Unit Tests
+- Unit Tests are added for the Modules - APOD, Favorites & Favorites - Details
+
 ## Deployment Target
 - iOS 15.5
 
