@@ -79,3 +79,8 @@ enum DateFormat: String {
 enum Constants {
     static let noSpace = ""
 }
+
+// Detect if the app is running unit tests.
+func isRunningUnitTests() -> Bool {
+    return ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil
+}

@@ -118,7 +118,7 @@
         <!--Favorites-->
         <scene sceneID="UWE-Zb-cRy">
             <objects>
-                <viewController id="5o6-HX-inw" customClass="FavoritesViewController" customModule="APOD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="favorites" id="5o6-HX-inw" customClass="FavoritesViewController" customModule="APOD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="woG-Ge-HzN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -239,7 +239,7 @@
         <!--APOD-->
         <scene sceneID="eMb-4T-pzU">
             <objects>
-                <viewController id="gSM-N6-Qaj" customClass="APODViewController" customModule="APOD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="apod" id="gSM-N6-Qaj" customClass="APODViewController" customModule="APOD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SZ3-Sz-HQf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

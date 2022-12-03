@@ -46,6 +46,12 @@ class NetworkClient {
     }
     
     public func getData(completionBlock: @escaping (Result<Data, Error>) -> Void, queryParams: [String: String]) {
+        if isRunningUnitTests() {
+            let path = Bundle.main.path(forResource: "MockAPOD", ofType: "json")
+            let jsonData = try! Data(contentsOf: URL(fileURLWithPath: path!))
+            completionBlock(.success(jsonData))
+            return
+        }
         var queryItems = [URLQueryItem(name: QueryParams.apiKey, value: NetworkConstants.apiKey)]
         queryItems = queryItems + queryParams.compactMap({ key, value in
             URLQueryItem(name: key, value: value)

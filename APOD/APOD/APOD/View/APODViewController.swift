@@ -15,8 +15,8 @@ class APODViewController: UIViewController {
     @IBOutlet private var apodImageLoader: UIActivityIndicatorView!
     @IBOutlet private var apodVideoButton: UIButton!
     @IBOutlet private var apodDateTextField: UITextField!
-    @IBOutlet var favoritesButton: UIButton!
-    @IBOutlet var apodExplanation: UILabel!
+    @IBOutlet private var favoritesButton: UIButton!
+    @IBOutlet private var apodExplanation: UILabel!
     let viewModel = APODViewModel()
     
     override func viewDidLoad() {
