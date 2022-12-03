@@ -32,16 +32,16 @@ iOS Application Implementing APOD API of NASA
 
 ### iPhone Dark Mode
 <p float="left">
-<img src="https://user-images.githubusercontent.com/29563042/205435043-dff6ddc4-59ce-404d-8d21-f02fdbb77831.png" width="260" height="560">
-<img src="https://user-images.githubusercontent.com/29563042/205435048-2f224e12-f4f1-4a95-8385-a8d8f133b013.png" width="260" height="560">
-<img src="https://user-images.githubusercontent.com/29563042/205435051-f7595a8e-8641-4037-b6ab-4eecb0ce1eb3.png" width="260" height="560">
-<img src="https://user-images.githubusercontent.com/29563042/205435054-53070876-0932-4be0-822c-1a4762e2294d.png" width="260" height="560">
-<img src="https://user-images.githubusercontent.com/29563042/205435056-6316fcc9-ba75-44e4-8274-50ba4d898ca1.png" width="260" height="560">
+<img src="https://user-images.githubusercontent.com/29563042/205435043-dff6ddc4-59ce-404d-8d21-f02fdbb77831.png" width="414" height="896">
+<img src="https://user-images.githubusercontent.com/29563042/205435048-2f224e12-f4f1-4a95-8385-a8d8f133b013.png" width="414" height="896">
+<img src="https://user-images.githubusercontent.com/29563042/205435051-f7595a8e-8641-4037-b6ab-4eecb0ce1eb3.png" width="414" height="896">
+<img src="https://user-images.githubusercontent.com/29563042/205435054-53070876-0932-4be0-822c-1a4762e2294d.png" width="414" height="896">
+<img src="https://user-images.githubusercontent.com/29563042/205435056-6316fcc9-ba75-44e4-8274-50ba4d898ca1.png" width="414" height="896">
 </p>
 <p float="left">
-<img src="https://user-images.githubusercontent.com/29563042/205435057-47257d91-dab9-433a-94f4-ab4aba9efe09.png" width="560" height="260">
-<img src="https://user-images.githubusercontent.com/29563042/205435059-8f29b001-c923-4b38-b2dd-4948facc8d09.png" width="560" height="260">
-<img src="https://user-images.githubusercontent.com/29563042/205435060-00514e3d-cc94-4660-ba09-abba38a2abff.png" width="560" height="260">
+<img src="https://user-images.githubusercontent.com/29563042/205435057-47257d91-dab9-433a-94f4-ab4aba9efe09.png" width="896" height="414">
+<img src="https://user-images.githubusercontent.com/29563042/205435059-8f29b001-c923-4b38-b2dd-4948facc8d09.png" width="896" height="414">
+<img src="https://user-images.githubusercontent.com/29563042/205435060-00514e3d-cc94-4660-ba09-abba38a2abff.png" width="896" height="414">
 </p>
   
 ### iPad Light Mode
