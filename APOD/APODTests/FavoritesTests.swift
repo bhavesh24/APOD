@@ -38,7 +38,9 @@ class FavoritesTests: XCTestCase {
             XCTAssertNotNil(viewController.collectionView(collectionView, cellForItemAt: IndexPath(item: 0, section: 0)))
             XCTAssertNotNil(viewController.collectionView(collectionView, didSelectItemAt: IndexPath(item: 0, section: 0)))
         }
-        XCTAssertNotNil(viewController.removeFavorites(tag: 0))
+        if let index = viewController.viewModel.APODFavorites.firstIndex(of: apod) {
+            XCTAssertNotNil(viewController.removeFavorites(tag: index))
+        }
     }
 
 }

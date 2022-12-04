@@ -31,7 +31,6 @@ class APODTests: XCTestCase {
         viewController.viewModel.currentAPOD = apod
         XCTAssertNotNil(viewController.updateDate())
         XCTAssertNotNil(viewController.playVideoURL(UIButton()))
-        XCTAssertNotNil(viewController.favoritesButtonAction(UIButton()))
         XCTAssertNotNil(viewController.viewModel.getDateFromServerDateString(date: "2022-12-03"))
         XCTAssertNotNil(viewController.viewModel.setImage())
         XCTAssertNotNil(viewController.hideLoader())
